@@ -17,8 +17,8 @@
     </div>
 
     <div class="field">
-        <!-- <div class="label">Logradouro @error('endereco') <span class="error-validation"> - {{ $message }}</span> @enderror</div> -->
-        <input type="text" name="endereco" value="{{ old('endereco') }}" placeholder="Endereço" maxlength="255">
+        <!-- <div class="label">Logradouro @error('logradouro') <span class="error-validation"> - {{ $message }}</span> @enderror</div> -->
+        <input type="text" name="logradouro" value="{{ old('logradouro') }}" placeholder="Endereço" maxlength="255">
     </div>
     <div class="field">
         <!-- <div class="label">Bairro @error('bairro') <span class="error-validation"> - {{ $message }}</span> @enderror</div> -->

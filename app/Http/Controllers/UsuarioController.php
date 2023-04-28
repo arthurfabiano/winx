@@ -12,6 +12,6 @@ class UsuarioController extends Controller
     {
         Orcamento::create($request->all());
 
-        return redirect()->back();
+        return view('dashboard');
     }
 }

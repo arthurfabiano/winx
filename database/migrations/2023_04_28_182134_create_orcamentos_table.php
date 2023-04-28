@@ -15,11 +15,12 @@ return new class extends Migration
     {
         Schema::create('orcamentos', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('address_id')->constrained()->cascadeOnDelete();
 
             $table->string("nome_cliente");
             $table->string("email_contato");
             $table->char("telefone", 10);
-            $table->string("endereco");
 
             $table->string("navegador_web", 50);
             $table->integer("paginas_web");
