@@ -17,7 +17,7 @@
     <header>- Informações ao Cliente -</header>
 
     <p style="text-align: left;"><i>O Sr(a). <b>{{ $dadosOrcamento->nome_cliente }}</b> com o email <b>{{ $dadosOrcamento->email_contato }}</b> e telefone <b>{{ $dadosOrcamento->telefone }}</b>
-            morador da cidade de <b>{{ $dadosOrcamento->endereco }}</b> solicitou no dia <b>{{ $dadosOrcamento->created_at }}</b> os orcamento de um projeto web e mobile cujo as
+            morador da cidade de <b>{{ $dadosOrcamento->address->cidade }}/{{ $dadosOrcamento->address->estado }}</b> solicitou no dia <b>{{ $dadosOrcamento->created_at }}</b> os orcamento de um projeto web e mobile cujo as
             informações estão listadas abaixo para aprovação!</i></p>
 
     <div class="spacing"></div>

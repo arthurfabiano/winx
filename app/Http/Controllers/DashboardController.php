@@ -10,7 +10,7 @@ class DashboardController extends Controller
 {
     public function showDashboard(Orcamento $orcamento)
     {
-        $dadosOrcamento = $orcamento->load(['user']);
+        $dadosOrcamento = $orcamento->load(['user', 'address']);
 
         return view('dashboard', compact('dadosOrcamento'));
     }

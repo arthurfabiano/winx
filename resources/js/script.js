@@ -9,7 +9,9 @@ const submitBtn = document.querySelector(".submit");
 const progressText = document.querySelectorAll(".step p");
 const progressCheck = document.querySelectorAll(".step .check");
 const bullet = document.querySelectorAll(".step .bullet");
+
 let current = 1;
+let cep = document.getElementById("cep");
 
 nextBtnFirst.addEventListener("click", function(event){
     event.preventDefault();
@@ -70,3 +72,28 @@ prevBtnFourth.addEventListener("click", function(event){
   progressText[current - 2].classList.remove("active");
   current -= 1;
 });
+
+cep.addEventListener("keyup", function(e){
+    if(cep.value.length == 9)
+    {
+        autoComplete(cep.value);
+    }
+});
+
+function autoComplete(cep)
+{
+    let url = `/cep/${cep}`;
+
+    fetch(url).then(function(res) {
+        if (res.ok) {
+            res.json().then(function(address) {
+                if (address.erro !== true) {
+                    document.getElementById("logradouro").value = address.logradouro;
+                    document.getElementById("bairro").value = address.bairro;
+                    document.getElementById("cidade").value = address.localidade;
+                    document.getElementById("estado").value = address.uf;
+                }
+            })
+        }
+    })
+}

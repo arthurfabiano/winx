@@ -46,6 +46,6 @@ class User extends Authenticatable
 
     public function orcamento()
     {
-        return $this->hasMany(Orcamento::class);
+        return $this->hasOne(Orcamento::class);
     }
 }

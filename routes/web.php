@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CepController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\UsuarioController;
 use Illuminate\Support\Facades\Route;
@@ -19,6 +20,7 @@ Route::get('/', function () {
     return view('form');
 });
 
-Route::get('/dashboard/{orcamento?}', [DashboardController::class, 'showDashboard'])->name('dashboard');
+Route::get('/cep/{cep}', CepController::class);
 
+Route::get('/dashboard/{orcamento?}', [DashboardController::class, 'showDashboard'])->name('dashboard');
 Route::post('/cadastro-orcamento', [UsuarioController::class, 'cadastroOrcamento'])->name('user.cadastro-orcamento');
