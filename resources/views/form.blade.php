@@ -12,30 +12,37 @@
     <div class="container">
       <div class="progress-bar">
         <div class="step">
-          <p>Dados do Cliente</p>
+          <p>Cliente</p>
           <div class="bullet">
             <span>1</span>
           </div>
           <div class="check fas fa-check"></div>
         </div>
         <div class="step">
-          <p>Projeto Web</p>
+          <p>Web</p>
           <div class="bullet">
             <span>2</span>
           </div>
           <div class="check fas fa-check"></div>
         </div>
         <div class="step">
-          <p>Projeto Mobile</p>
+          <p>Mobile</p>
           <div class="bullet">
             <span>3</span>
           </div>
           <div class="check fas fa-check"></div>
         </div>
+          <div class="step">
+              <p>Desktop</p>
+              <div class="bullet">
+                  <span>4</span>
+              </div>
+              <div class="check fas fa-check"></div>
+          </div>
         <div class="step">
           <p>Cadastro</p>
           <div class="bullet">
-            <span>4</span>
+            <span>5</span>
           </div>
           <div class="check fas fa-check"></div>
         </div>
@@ -49,6 +56,7 @@
               @include('parciais.cliente')
               @include('parciais.web')
               @include('parciais.mobile')
+              @include('parciais.desktop')
               @include('parciais.login')
           </form>
       </div>

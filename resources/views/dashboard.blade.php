@@ -20,15 +20,17 @@
             morador da cidade de <b>{{ $dadosOrcamento->address->cidade }}/{{ $dadosOrcamento->address->estado }}</b> solicitou no dia <b>{{ $dadosOrcamento->created_at }}</b> os orcamento de um projeto web e mobile cujo as
             informações estão listadas abaixo para aprovação!</i></p>
 
-    <div class="spacing"></div>
-
     <h3 class="mt-10" style="text-align: center;">> Projeto Web <</h3>
     @include('parciais.dashboard-web')
-    <div class="spacing"></div>
+    <div class="spacing-sm"></div>
 
     <h3 class="mt-10" style="text-align: center;">> Projeto Mobile <</h3>
     @include('parciais.dashboard-mobile')
-    <div class="spacing"></div>
+    <div class="spacing-sm"></div>
+
+    <h3 class="mt-10" style="text-align: center;">> Projeto Desktop <</h3>
+    @include('parciais.dashboard-desktop')
+    <div class="spacing-sm"></div>
 
     <div style="text-align: center;">
         <a href="#"><i class="fa-lg fas fa-file-pdf nav-icon mr-30"></i></a>

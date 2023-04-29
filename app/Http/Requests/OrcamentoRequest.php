@@ -6,7 +6,7 @@ use App\Rules\CepRule;
 use App\Services\CepService;
 use Illuminate\Foundation\Http\FormRequest;
 
-class UsuarioRequest extends FormRequest
+class OrcamentoRequest extends FormRequest
 {
     public $cepService;
     /**
@@ -56,6 +56,11 @@ class UsuarioRequest extends FormRequest
             "quantidade_tela_mobile" => 'required|numeric',
             "login_mobile" => 'required',
             "pagamento_mobile" => 'required',
+
+            "plataforma_desktop" => 'required',
+            "quantidade_telas_desktop" => 'required|numeric',
+            "impressora_desktop" => 'required',
+            "licenca_desktop" => 'required',
 
             "email" => 'required|email',
             "password" => 'required|min:8'
