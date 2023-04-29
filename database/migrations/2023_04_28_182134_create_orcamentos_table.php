@@ -24,13 +24,18 @@ return new class extends Migration
 
             $table->string("navegador_web", 50);
             $table->integer("paginas_web");
-            $table->string("login_web");
-            $table->string("pagamento_web");
+            $table->string("login_web", 3);
+            $table->string("pagamento_web", 3);
 
             $table->string("plataforma_mobile");
             $table->integer("quantidade_tela_mobile");
-            $table->string("login_mobile");
-            $table->string("pagamento_mobile");
+            $table->string("login_mobile", 3);
+            $table->string("pagamento_mobile", 3);
+
+            $table->string("plataforma_desktop");
+            $table->integer("quantidade_telas_desktop");
+            $table->string("impressora_desktop", 3);
+            $table->string("licenca_desktop", 3);
 
             $table->softDeletes();
             $table->timestamps();
