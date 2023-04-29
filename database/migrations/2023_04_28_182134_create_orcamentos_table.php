@@ -32,9 +32,6 @@ return new class extends Migration
             $table->string("login_mobile");
             $table->string("pagamento_mobile");
 
-            $table->string("email");
-            $table->string("password");
-
             $table->softDeletes();
             $table->timestamps();
         });

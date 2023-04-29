@@ -18,14 +18,14 @@ class Orcamento extends Model
         return $this->belongsTo(User::class);
     }
 
+    public function address()
+    {
+        return $this->belongsTo(Address::class);
+    }
+
     public function getNomeClienteAttribute(): String
     {
         return ucfirst($this->attributes['nome_cliente']);
-    }
-
-    public function getEnderecoAttribute(): String
-    {
-        return ucwords($this->attributes['endereco']);
     }
 
     public function getNavegadorWebAttribute(): String
