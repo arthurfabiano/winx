@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\CepController;
 use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\UsuarioController;
+use App\Http\Controllers\OrcamentoController;
 use App\Models\Orcamento;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
@@ -34,5 +34,6 @@ Route::get('/', function () {
 
 Route::get('/cep/{cep}', CepController::class);
 
-Route::get('/dashboard/{orcamento?}', [DashboardController::class, 'showDashboard'])->name('dashboard');
-Route::post('/cadastro-orcamento', [UsuarioController::class, 'cadastroOrcamento'])->name('user.cadastro-orcamento');
+Route::get('/dashboard/{orcamento?}', [DashboardController::class, 'show'])->name('dashboard');
+Route::get('/dashboard/{orcamento?}', [DashboardController::class, 'show'])->name('dashboard');
+Route::post('/cadastro-orcamento', [OrcamentoController::class, 'store'])->name('user.cadastro-orcamento');
