@@ -10,13 +10,13 @@
     </div>
     <div class="field">
         <div class="label mt-10">@error('quantidade_telas_desktop') <span class="error-validation"> - {{ $message }}</span> @enderror</div>
-        <input type="number" name="quantidade_telas_desktop" @error('quantidade_telas_desktop') class="input-error" @enderror value="{{ old('quantidade_telas_desktop') || 1 }}" placeholder="Quantas telas teremos">
+        <input type="number" name="quantidade_telas_desktop" @error('quantidade_telas_desktop') class="input-error" @enderror value="{{ old('quantidade_telas_desktop') || 1 }}" placeholder="Quantas telas teremos" value="1">
     </div>
     <div class="field">
         <div class="label mt-10">@error('impressora_desktop') <span class="error-validation"> - {{ $message }}</span> @enderror</div>
         <select name="impressora_desktop" @error('impressora_desktop') class="input-error" @enderror>
             <option value="">Suporte a Impressora?</option>
-            <option value="sim">Sim</option>
+            <option value="sim" selected>Sim</option>
             <option value="nao">Não</option>
         </select>
     </div>

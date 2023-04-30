@@ -3,6 +3,8 @@
 use App\Http\Controllers\CepController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\UsuarioController;
+use App\Models\Orcamento;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,6 +17,16 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+
+
+Route::get('/email', function () {
+    $data = [
+        'nome' => 'arthur.masterdevelop2gmil.com'
+    ];
+
+    Mail::to('arthur.masterdevelop@gmal.com')->send(new \App\Mail\SendOrcamento($data));
+});
 
 Route::get('/', function () {
     return view('form');
