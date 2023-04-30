@@ -17,7 +17,7 @@
         <div class="label mt-10">@error('login_web') <span class="error-validation"> - {{ $message }}</span> @enderror</div>
         <select name="login_web" @error('login_web') class="input-error" @enderror>
             <option value="">Terá login?</option>
-            <option value="sim">Sim</option>
+            <option value="sim" selected>Sim</option>
             <option value="nao">Não</option>
         </select>
     </div>

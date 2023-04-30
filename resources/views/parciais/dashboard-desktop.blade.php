@@ -1,7 +1,7 @@
 <table class="mt-10">
     <tr>
-        <th>Plataforma</th>
-        <th>Quantidade</th>
+        <th>Sistema Operacional</th>
+        <th>Quantidade de Telas</th>
         <th>Impressora</th>
         <th>Licenca</th>
     </tr>

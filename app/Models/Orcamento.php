@@ -60,16 +60,16 @@ class Orcamento extends Model
 
     public function getPlataformaDesktopAttribute(): String
     {
-        return ucwords($this->attributes['plataforma_mobile']);
+        return ucwords($this->attributes['plataforma_desktop']);
     }
 
     public function getImpressoraDesktopAttribute(): String
     {
-        return ucwords($this->attributes['login_mobile']);
+        return ucwords($this->attributes['impressora_desktop']);
     }
 
     public function getLicencaDesktopAttribute(): String
     {
-        return ucwords($this->attributes['pagamento_mobile']);
+        return ucwords($this->attributes['licenca_desktop']);
     }
 }
