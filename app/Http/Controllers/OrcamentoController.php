@@ -6,14 +6,21 @@ use App\Http\Requests\OrcamentoRequest;
 use App\Models\Address;
 use App\Models\Orcamento;
 use App\Models\User;
+use App\Services\OrcamentoService;
 use Illuminate\Support\Facades\Hash;
 
-class UsuarioController extends Controller
+class OrcamentoController extends Controller
 {
-    public function cadastroOrcamento(OrcamentoRequest $request)
+    protected $orcamentoService;
+
+    public function __construct(OrcamentoService $orcamentoService)
     {
-        // TODO: Colocar em uma classe privada
-        $orcamento = $request->only([
+        $this->orcamentoService = $orcamentoService;
+    }
+
+    private function orcamento($request)
+    {
+        return $request->only([
             "nome_cliente",
             "email_contato",
             "telefone",
@@ -32,14 +39,20 @@ class UsuarioController extends Controller
             "impressora_desktop",
             "licenca_desktop"
         ]);
-        // TODO: Colocar em uma classe privada
-        $address = $request->only([
+    }
+
+    private function address($request)
+    {
+        return $request->only([
             "cep",
             "logradouro",
             "bairro",
             "cidade",
             "estado"]);
-        // TODO: Colocar em uma classe privada
+    }
+
+    private function user($request)
+    {
         $user = $request->only([
             "name",
             "email",
@@ -47,14 +60,17 @@ class UsuarioController extends Controller
 
         $user['password'] = Hash::make($user['password']);
 
-        $address = Address::create($address);
-        $user = User::create($user);
+        return $user;
 
-        $orcamento['user_id'] = $user->id;
-        $orcamento['address_id'] = $address->id;
+    }
+    public function store(OrcamentoRequest $request)
+    {
+        $orcamento = $this->orcamento($request);
+        $address = $this->address($request);
+        $user = $this->user($request);
 
-        $data = Orcamento::create($orcamento);
+        $orcamento = $this->orcamentoService->orgamento($orcamento, $address, $user);
 
-        return redirect()->route('dashboard', $data);
+        return redirect()->route('dashboard', $orcamento);
     }
 }
