@@ -260,3 +260,7 @@ td, th {
 tr:nth-child(even) {
     background-color: #dddddd;
 }
+
+.margin-up-login {
+    margin-top: 15%;
+}

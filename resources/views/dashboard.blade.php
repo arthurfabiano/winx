@@ -16,10 +16,14 @@
 
     <header>- Informações ao Cliente -</header>
 
-    <p style="text-align: left;text-align: justify;"><i>O Sr(a). <b>{{ $dadosOrcamento->nome_cliente }}</b> com o email <b>{{ $dadosOrcamento->email_contato }}</b>
+    <p style="text-align: justify;"><i>O Sr(a). <b>{{ $dadosOrcamento->nome_cliente }}</b> com o email <b>{{ $dadosOrcamento->email_contato }}</b>
             e telefone <b>{{ $dadosOrcamento->telefone }}</b> morador da cidade de <b>{{ $dadosOrcamento->address->cidade }}/{{ $dadosOrcamento->address->estado }}</b>
-            solicitou no dia <b>{{ $dadosOrcamento->created_at }}</b> os orcamento de um projeto web, mobile e desktop cujo as
+            solicitou no dia <b>{{ data_iso_para_br($dadosOrcamento->created_at) }}</b> os orcamento de um projeto web, mobile e desktop cujo as
             informações estão listadas abaixo!</i></p>
+    <br>
+    <p style="text-align: left;">Este orçamento foi enviado no seu email: <b>{{ $dadosOrcamento->email_contato }}</b></p>
+
+    <hr>
 
     <h3 class="mt-10" style="text-align: center;">> Projeto Web <</h3>
     @include('parciais.dashboard-web')
