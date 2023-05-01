@@ -18,7 +18,6 @@ class DashboardController extends Controller
         $this->dashboadService = $dashboardService;
     }
 
-
     public function showOrcamento(Orcamento $orcamento)
     {
         $dadosOrcamento = $this->sendReportBudget($orcamento);
