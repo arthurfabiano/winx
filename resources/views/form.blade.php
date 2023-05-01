@@ -50,8 +50,8 @@
       <div class="form-outer">
           <form method="POST" action="{{ route('user.cadastro-orcamento') }}">
               <input type="hidden" name="user_id" value="1">
-
               @csrf
+
               @include('parciais.cliente')
               @include('parciais.web')
               @include('parciais.mobile')

@@ -18,14 +18,16 @@ class DashboardController extends Controller
         $this->dashboadService = $dashboardService;
     }
 
-    /**
-     * @param Orcamento $orcamento
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
-     */
-    public function show(Orcamento $orcamento)
+
+    public function showOrcamento(Orcamento $orcamento)
     {
-        $dadosOrcamento = $this->dashboadService->sendEmail($orcamento);
+        $dadosOrcamento = $this->sendReportBudget($orcamento);
 
         return view('dashboard', compact('dadosOrcamento'));
+    }
+
+    public function sendReportBudget($budget)
+    {
+        return $this->dashboadService->sendEmail($budget);
     }
 }

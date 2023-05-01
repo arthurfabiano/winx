@@ -46,6 +46,9 @@ class SendOrcamento extends Mailable
     {
         return new Content(
             markdown: 'emails.orcamento',
+            with: [
+                'url' => $this->data['url']
+            ]
         );
     }
 
