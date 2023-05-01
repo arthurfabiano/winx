@@ -21,7 +21,7 @@ __Quantidade de Páginas.:__ {{ $data['quantidade_telas_desktop'] }}<br>
 __Login.:__ {{ $data['impressora_desktop'] }}<br>
 __Pagamento.:__ {{ $data['licenca_desktop'] }}<br>
 
-<x-mail::button :url="''">
+<x-mail::button :url="$url">
 Ver na Web
 </x-mail::button>
 

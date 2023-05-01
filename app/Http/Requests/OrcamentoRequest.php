@@ -62,8 +62,9 @@ class OrcamentoRequest extends FormRequest
             "impressora_desktop" => 'required',
             "licenca_desktop" => 'required',
 
-            "email" => 'required|email',
-            "password" => 'required|min:8'
+            "name" => 'required|string|max:255',
+            "email" => 'required|string|email|max:255|unique:users',
+            "password" => 'required|string|min:8'
         ];
     }
 

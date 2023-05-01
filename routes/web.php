@@ -1,10 +1,10 @@
 <?php
 
+use App\Http\Controllers\AutheticationController;
 use App\Http\Controllers\CepController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\OrcamentoController;
-use App\Models\Orcamento;
-use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,23 +17,16 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-
-
-Route::get('/email', function () {
-    $data = [
-        'nome' => 'arthur.masterdevelop2gmil.com'
-    ];
-
-    Mail::to('arthur.masterdevelop@gmal.com')->send(new \App\Mail\SendOrcamento($data));
-});
-
 Route::get('/', function () {
     return view('form');
-});
+})->name('index');
 
 Route::get('/cep/{cep}', CepController::class);
 
-Route::get('/dashboard/{orcamento?}', [DashboardController::class, 'show'])->name('dashboard');
-Route::get('/dashboard/{orcamento?}', [DashboardController::class, 'show'])->name('dashboard');
+Route::get('/login', [AutheticationController::class, 'login'])->name('auth.login');
+Route::post('/login', [AutheticationController::class, 'logar'])->name('auth.logar');
+
 Route::post('/cadastro-orcamento', [OrcamentoController::class, 'store'])->name('user.cadastro-orcamento');
+Route::get('/logout', [AutheticationController::class, 'logout'])->name('auth.sair')->middleware('auth');
+Route::get('/dashboard/{orcamento?}', [DashboardController::class, 'showOrcamento'])->name('show.orcamento')->middleware('auth');
+Route::get('/download-pdf/{orcamento}', [OrcamentoController::class, 'downloadPDF'])->name('download.pdf')->middleware('auth');
