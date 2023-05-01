@@ -70,7 +70,7 @@ class OrcamentoController extends Controller
 
         $orcamento = $this->orcamentoService->orgamento($orcamento, $address, $user);
 
-        return redirect()->route('dashboard', $orcamento);
+        return redirect()->route('show.orcamento', $orcamento);
     }
 
     public function downloadPDF(Orcamento $orcamento)
