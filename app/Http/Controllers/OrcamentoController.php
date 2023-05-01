@@ -10,8 +10,7 @@ use App\Services\OrcamentoService;
 use Illuminate\Support\Facades\Hash;
 
 class OrcamentoController extends Controller
-{
-    protected $orcamentoService;
+{    protected $orcamentoService;
 
     public function __construct(OrcamentoService $orcamentoService)
     {
@@ -72,5 +71,14 @@ class OrcamentoController extends Controller
         $orcamento = $this->orcamentoService->orgamento($orcamento, $address, $user);
 
         return redirect()->route('dashboard', $orcamento);
+    }
+
+    public function downloadPDF(Orcamento $orcamento)
+    {
+        $dadosOrcamento = $orcamento->load(['user', 'address'])->toArray();
+
+        $pdf = \PDF::loadView('pdf.orcamento', compact('dadosOrcamento'));
+
+        return $pdf->download("Orcamento - {$dadosOrcamento['nome_cliente']}.pdf");
     }
 }

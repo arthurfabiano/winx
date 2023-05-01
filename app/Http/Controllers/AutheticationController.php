@@ -32,11 +32,18 @@ class AutheticationController extends Controller
             $user = User::where('email', $dados['email'])->first();
             $orcamento = Orcamento::where('user_id', $user['id'])->first();
 
-            return redirect()->route('dashboard', $orcamento);
+            return redirect()->route('show.orcamento', $orcamento);
         }
 
         return redirect()->back()->withErrors([
             'email' => 'O email e/ou senha não são válidos!'
         ]);
+    }
+
+    public function logout()
+    {
+        Auth::logout();
+
+        return redirect()->route('auth.login');
     }
 }
