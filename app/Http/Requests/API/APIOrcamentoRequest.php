@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\API;
 
 use App\Rules\CepRule;
 use App\Services\CepService;
 use Illuminate\Foundation\Http\FormRequest;
 
-class OrcamentoRequest extends FormRequest
+class APIOrcamentoRequest extends FormRequest
 {
     public $cepService;
     /**
@@ -40,7 +40,7 @@ class OrcamentoRequest extends FormRequest
             return [
                 "nome_cliente" => 'min:2',
                 "email_contato" => 'string|email|max:255',
-                "telefone" => 'max:10|nullable',
+                "telefone" => 'nullable',
 
                 "navegador_web" => 'string|max:30',
                 "paginas_web" => 'numeric',
@@ -89,17 +89,5 @@ class OrcamentoRequest extends FormRequest
             "email" => 'required|string|email|max:255|unique:users',
             "password" => 'required|string|min:8'
         ];
-    }
-
-    public function validationData()
-    {
-        $campos = $this->all();
-
-        $campos['telefone'] = str_replace([' ', '(', ')', '-'], '', $campos['telefone']);
-        $campos['cep'] = str_replace('-', '', $campos['cep']);
-
-        $this->replace($campos);
-
-        return $campos;
     }
 }

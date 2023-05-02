@@ -14,6 +14,8 @@
 
     <p style="text-align: center;"><i>Faça seu login para ter acesso ao Orcamento.</i></p>
 
+    <p style="text-align: center;"><i>Em breve chegara um email em sua caixa de mensagem.</i></p>
+
     <div class="form-outer margin-up-login">
         <form method="POST" action="{{ route('auth.logar') }}">
             @csrf
