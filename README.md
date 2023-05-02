@@ -1,6 +1,13 @@
 # Setup para o projeto teste Win.ai
 
 ### Passo a passo
+
+Informativo sobre
+```sh
+Na pasta doc dentro do projeto possui um arquivo do postman onde poderá importar para fazer uso da API. 
+Nome: Wins.ai.postman_collection.json
+```
+
 Clone Repositório
 ```sh
 git clone https://github.com/arthurmasterdevelop/winx.git
