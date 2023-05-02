@@ -1,0 +1,307 @@
+{
+	"info": {
+		"_postman_id": "3b228079-f390-419e-a9ac-8fda37d0d0e7",
+		"name": "Wins.ai",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25026130"
+	},
+	"item": [
+		{
+			"name": "Budget",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api/v1/orcamento",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"orcamento"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "12",
+							"disabled": true
+						},
+						{
+							"key": "per_page",
+							"value": "2",
+							"disabled": true
+						},
+						{
+							"key": "page",
+							"value": "2",
+							"disabled": true
+						},
+						{
+							"key": "order",
+							"value": "asc",
+							"disabled": true
+						},
+						{
+							"key": "column",
+							"value": "id",
+							"disabled": true
+						},
+						{
+							"key": "search",
+							"value": "Ronen",
+							"disabled": true
+						},
+						{
+							"key": "status",
+							"value": "0",
+							"disabled": true
+						},
+						{
+							"key": "main",
+							"value": "1",
+							"disabled": true
+						}
+					]
+				},
+				"description": "**DESCRIÇÃO**\n\n_O usuário autorizado poderá listar todas as carteira existente no sistema ou visualiar apenas uma passando o identificador._\n\n**PRÉ CONDIÇÃO/ REQUISITOS**\n\n**O usuário poderá passar como parametro o id da carteira, pela qual ele desaja buscar no sistema para visualizar apenas uma carteira. Caso não seja passado o ID da carteira via parametro será listado todas as carteira no sistema.**\n\n**Em caso de listar todas as carteiras poderá passar por parametro os seguintes dados:**\n\nper_page = Quantidade de resgitros por página, valor padrão é 10.  \npage = Número da página que gostaria de visualizar, padrão irá iniciar da primeira página.  \norder = Caso queira ordenar em ordem crescente (ASC) ou decrecente (DESC) valor padrão ASC.  \ncolumn = Seta por qual coluna será ordenado, se não for passado nenhuma o sistema irá assumir valor padrão pelo ID  \nsearch = Pode ser passado algum parametro para busca, por padrão essa busca será feito pela coluna descrição.  \nstatus = Define por qual qual status quer trazer na requisição, se não for passado nenhum valor irá trazer todos.  \nmain = Define qual carteira irá trazer se será a carteira principal ou a padrão, caso não passe nenhum valor este assumirá o falor padrão, que irá trazer todas as carteiras.\n\n**REGRAS DE NEGÓCIOS**\n\nO sistema irá mostrar por padrão todas as carteira existes no sistema caso queira mostrar alguma carteira em expecífico terá que passar o id da carteira por parametro. E caso não seja passado nenhum outro parametro listado acima o sistema assumira valores padrões dos parametros acima."
+			},
+			"response": []
+		},
+		{
+			"name": "Add",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nome_cliente\": \"Teste API\",\n    \"email_contato\": \"teste@api.com\",\n    \"telefone\": \"3112345678\",\n    \"navegador_web\": \"Firefox\",\n    \"paginas_web\": 2,\n    \"login_web\": \"sim\",\n    \"pagamento_web\": \"sim\",\n    \"plataforma_mobile\": \"android\",\n    \"quantidade_tela_mobile\": 3,\n    \"login_mobile\": \"sim\",\n    \"pagamento_mobile\": \"sim\",\n    \"name\": \"Winsai\",\n    \"email\": \"Wins@ai.com\",\n    \"password\": \"password\",\n    \"plataforma_desktop\": \"sim\",\n    \"quantidade_telas_desktop\": 1,\n    \"impressora_desktop\": \"sim\",\n    \"licenca_desktop\": \"sim\",\n    \"cep\": 31580220,\n    \"logradouro\": \"Rua teste\",\n    \"bairro\": \"ceu azul\",\n    \"cidade\": \"sao paulo\",\n    \"estado\": \"MG\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api/v1/orcamento",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"orcamento"
+					]
+				},
+				"description": "DESCRIÇÃO\n\n_O usuário autorizado a cadastrar uma nova carteira no sistema irá poder passar os seguintes campos com seus respetivos valores: descrição, saldo, data do saldo, status e principal._\n\nPRÉ CONDIÇÃO/ REQUISITOS\n\nDescrição: Campo Obrigatório. Descrição com o nome da carteira do tipo string mínimo de 3 caracteres e no máximo 100 o mesmo não pode ser nulo.\n\nSaldo: Saldo referente a carteira cadastrada no formato inteiro. Campo não obrigatório. Valor padrão 0 \"zero\".\n\nData Saldo: Data referente ao saldo da carteira no formato dia, mês e ano exemplo: 01/01/2023. O campo não é obrigatório. Valor padrão data atual.\n\nStatus: Status da carteira que corresponde se ela está ativa ou inativa no sistema. O campo não obrigatório. Valor padrão ativo.\n\nPrincipal: Corresponde se a carteira cadastrada será a carteira principal para uso. O campo não obrigatório. Valor padrão: se primeira carteira, será true se não false. Caso informado como principal as outras carteiras serão definidas como false.\n\nREGRAS DE NEGÓCIOS\n\nSempre que for cadastrado uma nova carteira no sistema ela será vinculada a empresa que o usuário está logado naquele momento. Está carteira irá assumir como valor padrão que ela está ativa no sistema e que não será a carteira principal. Caso o usuário queira estar um valor diferente deste terá que passa qual o valor por meio do campo status e principal."
+			},
+			"response": [
+				{
+					"name": "Add",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nome_cliente\": \"Teste API\",\n    \"email_contato\": \"teste@api.com\",\n    \"telefone\": \"3112345678\",\n    \"navegador_web\": \"Firefox\",\n    \"paginas_web\": 2,\n    \"login_web\": \"sim\",\n    \"pagamento_web\": \"sim\",\n    \"plataforma_mobile\": \"android\",\n    \"quantidade_tela_mobile\": 3,\n    \"login_mobile\": \"sim\",\n    \"pagamento_mobile\": \"sim\",\n    \"name\": \"Winsai\",\n    \"email\": \"Wins@ai.com\",\n    \"password\": \"password\",\n    \"plataforma_desktop\": \"sim\",\n    \"quantidade_telas_desktop\": 1,\n    \"impressora_desktop\": \"sim\",\n    \"licenca_desktop\": \"sim\",\n    \"cep\": \"31580220\",\n    \"logradouro\": \"Rua teste\",\n    \"bairro\": \"ceu azul\",\n    \"cidade\": \"sao paulo\",\n    \"estado\": \"MG\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/orcamento",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"orcamento"
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Update",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nome_cliente\": \"Teste API teste mais\",\n    \"email_contato\": \"testeapi33@gmail.com\",\n    \"telefone\": \"3134961475\",\n    \"navegador_web\": \"Firefox\",\n    \"paginas_web\": 2,\n    \"login_web\": \"nao\",\n    \"pagamento_web\": \"nao\",\n    \"plataforma_mobile\": \"android\",\n    \"quantidade_tela_mobile\": 3,\n    \"login_mobile\": \"nao\",\n    \"pagamento_mobile\": \"nao\",\n    \"plataforma_desktop\": \"nao\",\n    \"quantidade_telas_desktop\": 1,\n    \"impressora_desktop\": \"nao\",\n    \"licenca_desktop\": \"nao\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api/v1/orcamento/1",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"orcamento",
+						"1"
+					]
+				},
+				"description": "**DESCRIÇÃO**\n\nO usuário autorizado a atualizar a carteira no sistema poderá passar os seguintes campos com seus respetivos valores: descricação, saldo, data do saldo, status e principal.\n\n**PRÉ CONDIÇÃO/ REQUISITOS**\n\n**Descrição: Descrição com o nome da carteira do tipo string mínimo de 3 caratecres e no máximo 100. Campo não obrigatório.**\n\n**Saldo**: Saldo referente a carteria cadastrada no formato inteiro. Campo não obrigatório.\n\n**Data Saldo:** Data referente ao saldo da carteira no formato dia, mês e ano exemplo: 01/01/2023. O campo não é obrigatório.\n\n**Status:** Status da carteira que coresponde se ela está ativa ou inativa no sistema. O campo não obrigatório.\n\n**Principal:** Corresponde se a carteira cadastrada será a carteira princiapal para uso. O campo não obrigatório.\n\n**REGRAS DE NEGÓCIOS**\n\nSempre que for atualizada uma carteira no sitema será atualizado apenas os campos que forem passados na requisição, os demais campos que não forem passados não terá o seu valor alterado e permanecerá com a informação registrada no sistema."
+			},
+			"response": [
+				{
+					"name": "Update",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nome_cliente\": \"Teste API Atualizacao\",\n    \"email_contato\": \"winx@ai.com\",\n    \"telefone\": \"3134961475\",\n    \"navegador_web\": \"Firefox\",\n    \"paginas_web\": 1,\n    \"login_web\": \"sim\",\n    \"pagamento_web\": \"sim\",\n    \"plataforma_mobile\": \"android\",\n    \"quantidade_tela_mobile\": 1,\n    \"login_mobile\": \"sim\",\n    \"pagamento_mobile\": \"sim\",\n    \"plataforma_desktop\": \"sim\",\n    \"quantidade_telas_desktop\": 1,\n    \"impressora_desktop\": \"sim\",\n    \"licenca_desktop\": \"sim\",\n    \"cep\": \"31580220\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/carteira/1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"carteira",
+								"1"
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Delete",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}/api/v1/orcamento/2",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"orcamento",
+						"2"
+					]
+				},
+				"description": "**DESCRIÇÃO**\n\nO usuário autorizado poderá deletar a carteira no banco de dados.\n\n**PRÉ CONDIÇÃO/ REQUISITOS**\n\nO usuário deverá obrigatóriamente passar o ID via URL da carteira pela qual ele deseja deletar no sistema.\n\n**REGRAS DE NEGÓCIOS**\n\nAo deletar a carteira no banco de dados, todos os dados respectivos desta carteira serão apagados da base de dados do sistema."
+			},
+			"response": []
+		},
+		{
+			"name": "Send Budget",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}/api/v1/orcamento/send-email/12",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"orcamento",
+						"send-email",
+						"12"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
