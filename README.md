@@ -19,7 +19,7 @@ Crie o arquivo .env
 Atualize as variáveis de ambiente do arquivo .env
 ```dosini
 APP_NAME="Winai"
-APP_URL=http://localhost
+APP_URL=http://localhost:8989
 
 DB_HOST=host
 DB_PORT=3306
