@@ -68,7 +68,7 @@ class OrcamentoController extends Controller
         $address = $this->address($request);
         $user = $this->user($request);
 
-        $orcamento = $this->orcamentoService->orgamento($orcamento, $address, $user);
+        $orcamento = $this->orcamentoService->createOrcamento($orcamento, $address, $user);
 
         return redirect()->route('show.orcamento', $orcamento);
     }
