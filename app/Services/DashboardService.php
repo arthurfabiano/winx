@@ -2,12 +2,7 @@
 
 namespace App\Services;
 
-use App\Exceptions\Manager\ApiException;
 use App\Jobs\SendEmailBudget;
-use App\Mail\SendOrcamento;
-use App\Models\Orcamento;
-use Illuminate\Support\Facades\Http;
-use Illuminate\Support\Facades\Mail;
 
 class DashboardService
 {
