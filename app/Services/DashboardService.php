@@ -18,7 +18,7 @@ class DashboardService
             $dadosOrcamento['url'] = 'http:localhost:8989/login';
 
             // Mail::to($dadosOrcamento['email_contato'])->send(new SendOrcamento($dadosOrcamento));
-            SendEmailBudget::dispatch($dadosOrcamento)->delay(now()->addSeconds('30'));
+            SendEmailBudget::dispatch($dadosOrcamento)->delay(now()->addSeconds('5'));
 
             return $dadosOrcamento;
         } catch (\Exception $exception) {

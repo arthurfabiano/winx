@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\API\OrcamentoController;
+use App\Http\Controllers\API\SendEmailController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -22,6 +23,7 @@ Route::group([
     'prefix' => 'v1/'
 ], function () {
     Route::resource('/orcamento', OrcamentoController::class);
+    Route::get('/orcamento/send-email/{orcamento}', [SendEmailController::class, 'sendEmailBudget']);
 });
 
 

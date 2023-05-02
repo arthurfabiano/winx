@@ -17,7 +17,7 @@ class OrcamentoResource extends JsonResource
     {
         return [
             "id" => $this->id,
-            "nomeCliente" => $this->nome_completo,
+            "nomeCliente" => $this->nome_cliente,
             "emailContato" => $this->email_contato,
             "telefone" => $this->telefone,
             "navegadorWeb" => $this->navegador_web,

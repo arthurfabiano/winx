@@ -68,7 +68,7 @@ class OrcamentoTest extends TestCase
      */
     public function testDeleteBudget()
     {
-        $orcamento = Orcamento::find(9);
+        $orcamento = Orcamento::find(1);
         $orcamento->forceDelete($orcamento);
 
         $this->assertDatabaseMissing('orcamentos', [
@@ -81,8 +81,8 @@ class OrcamentoTest extends TestCase
      */
     public function testFindBudget()
     {
-        $orcamento = Orcamento::find(10);
+        $orcamento = Orcamento::find(1);
 
-        $this->assertEquals(10,$orcamento->id);
+        $this->assertEquals(1,$orcamento->id);
     }
 }

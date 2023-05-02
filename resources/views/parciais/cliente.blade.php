@@ -13,24 +13,24 @@
     </div>
     <div class="field">
         <div class="label mt-10">@error('cep') <span class="error-validation"> - {{ $message }}</span> @enderror</div>
-        <input type="text" name="cep" id="cep" class="cep @error('cep') input-error @enderror"  value="{{ old('cep') }}" placeholder="CEP" maxlength="255">
+        <input type="text" name="cep" id="cep" class="cep @error('cep') input-error @enderror"  value="{{ old('cep') }}" placeholder="CEP" maxlength="8">
     </div>
 
     <div class="field">
         <div class="label mt-10">@error('logradouro') <span class="error-validation"> - {{ $message }}</span> @enderror</div>
-        <input type="text" name="logradouro" class="@error('logradouro') input-error @enderror" id="logradouro" value="{{ old('logradouro') }}" placeholder="Endereço" maxlength="255">
+        <input type="text" name="logradouro" class="@error('logradouro') input-error @enderror" id="logradouro" value="{{ old('logradouro') }}" placeholder="Endereço" maxlength="100">
     </div>
     <div class="field">
         <div class="label mt-10">@error('bairro') <span class="error-validation"> - {{ $message }}</span> @enderror</div>
-        <input type="text" name="bairro" class="@error('bairro') input-error @enderror" id="bairro" value="{{ old('bairro') }}" placeholder="Bairro" maxlength="255">
+        <input type="text" name="bairro" class="@error('bairro') input-error @enderror" id="bairro" value="{{ old('bairro') }}" placeholder="Bairro" maxlength="50">
     </div>
     <div class="field">
         <div class="label mt-10">@error('cidade') <span class="error-validation"> - {{ $message }}</span> @enderror</div>
-        <input type="text" name="cidade" class="@error('cidade') input-error @enderror" id="cidade" value="{{ old('cidade') }}" placeholder="Cidade" maxlength="255">
+        <input type="text" name="cidade" class="@error('cidade') input-error @enderror" id="cidade" value="{{ old('cidade') }}" placeholder="Cidade" maxlength="50">
     </div>
     <div class="field">
         <div class="label mt-10">@error('estado') <span class="error-validation"> - {{ $message }}</span> @enderror</div>
-        <input type="text" name="estado" class="@error('estado') input-error @enderror" id="estado" value="{{ old('estado') }}" placeholder="Estado" maxlength="255">
+        <input type="text" name="estado" class="@error('estado') input-error @enderror" id="estado" value="{{ old('estado') }}" placeholder="Estado" maxlength="2">
     </div>
 
     <div class="field">
